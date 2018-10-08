@@ -448,6 +448,9 @@ public class FingerprintAuth extends CordovaPlugin {
             errorMessage = "Failed to encrypt the data with the generated key: " +
                     "IllegalBlockSizeException: " + e.getMessage();
             Log.e(TAG, errorMessage);
+            //if (e.getCause().getMessage().contains("Key user not authenticated")){
+            removePermanentlyInvalidatedKey();
+            //}
         }
 
         if (result != "") {
